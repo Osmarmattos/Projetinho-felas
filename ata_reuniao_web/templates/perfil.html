@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/perfil.css">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Perfil do Usuário{% endblock %}
+
+{% block content %}
+    <h1>Perfil do Usuário</h1>
+    <p>Usuário: {{ usuario }}</p>
+
+    <h2>Alterar Senha</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="nova_senha">Nova Senha:</label>
+            <input type="password" id="nova_senha" name="nova_senha" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmar_senha">Confirmar Nova Senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+        </div>
+        <button type="submit" class="btn-submit">Salvar Alterações</button>
+    </form>
+
+    <a href="{{ url_for('hub_atas') }}" class="btn-voltar">Voltar para o Hub de Atas</a>
+{% endblock %}
+    
+</body>
+</html>

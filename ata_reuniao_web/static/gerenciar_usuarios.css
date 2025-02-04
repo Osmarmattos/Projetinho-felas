@@ -1,0 +1,19 @@
+/* Estilos específicos para a página de gerenciar usuários */
+.user-list {
+    margin-top: 20px;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-item .btn {
+    margin-left: 10px;
+}

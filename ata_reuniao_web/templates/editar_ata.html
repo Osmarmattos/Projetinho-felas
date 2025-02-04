@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Ata</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Ata</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" value="{{ ata.titulo }}" required>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" required>{{ ata.descricao }}</textarea>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+        <a href="{{ url_for('atas') }}">Voltar</a>
+    </div>
+</body>
+</html>

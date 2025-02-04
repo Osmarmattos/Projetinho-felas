@@ -1,0 +1,189 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8d7da; /* Fundo avermelhado claro */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho e navegação */
+header {
+    background-color: #dc3545; /* Vermelho escuro */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #dc3545; /* Vermelho escuro */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #c82333; /* Vermelho mais escuro */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Cinza */
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Cinza mais escuro */
+}
+
+.btn-success {
+    background-color: #28a745; /* Verde */
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Verde mais escuro */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Vermelho escuro */
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Vermelho mais escuro */
+}
+
+/* Estilos específicos para o botão de entrar */
+.btn-entrar {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #dc3545, #c82333); /* Gradiente vermelho */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-entrar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.btn-entrar:hover {
+    background: linear-gradient(135deg, #c82333, #dc3545); /* Inverte o gradiente ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-entrar:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.btn-entrar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensagens de alerta */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Formulários */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Listas */
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

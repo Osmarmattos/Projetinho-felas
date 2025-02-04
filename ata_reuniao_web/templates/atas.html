@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atas de Reunião</title>
+    <link rel="stylesheet" href="/static/atas.css">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Criar Nova Ata{% endblock %}
+
+{% block content %}
+    <div class="atas-container">
+        <div class="atas-header">
+            <h1>Criar Nova Ata</h1>
+            <a href="{{ url_for('hub_atas') }}" class="btn btn-secondary">Voltar para o Hub de Atas</a>
+        </div>
+
+        <div class="atas-content">
+            <h2>Preencha os detalhes da ata</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar Ata</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

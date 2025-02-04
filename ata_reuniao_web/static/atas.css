@@ -1,0 +1,96 @@
+/* Estilos específicos para a página de atas */
+.atas-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.atas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.atas-header h1 {
+    font-size: 2rem;
+    color: #dc3545; /* Vermelho escuro */
+    margin: 0;
+}
+
+.atas-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.atas-content h2 {
+    font-size: 1.75rem;
+    color: #dc3545; /* Vermelho escuro */
+    margin-bottom: 1.5rem;
+}
+
+.atas-content .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.atas-content .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.atas-content .form-group input,
+.atas-content .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.atas-content .form-group input:focus,
+.atas-content .form-group textarea:focus {
+    border-color: #dc3545; /* Vermelho escuro */
+    outline: none;
+}
+
+.atas-content .btn-primary {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #dc3545, #c82333); /* Gradiente vermelho */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.atas-content .btn-primary:hover {
+    background: linear-gradient(135deg, #c82333, #dc3545); /* Inverte o gradiente ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.atas-content .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .atas-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .atas-content {
+        padding: 1rem;
+    }
+}

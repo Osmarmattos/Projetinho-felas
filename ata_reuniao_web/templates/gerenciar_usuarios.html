@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários</title>
+    <link rel="stylesheet" href="/static/gerenciar_usuarios.css">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Gerenciar Usuários{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h1>Gerenciar Usuários</h1>
+    <ul class="user-list">
+        {% for usuario in usuarios %}
+            <li class="user-item">
+                {{ usuario }}
+                <a href="{{ url_for('excluir_usuario', usuario=usuario) }}" class="btn-excluir" onclick="return confirm('Tem certeza?')">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('hub_atas') }}" class="btn-voltar">Voltar para o Hub de Atas</a>
+{% endblock %}
+    </div>
+    
+</body>
+</html>

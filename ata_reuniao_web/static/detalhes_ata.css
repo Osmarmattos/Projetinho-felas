@@ -1,0 +1,125 @@
+/* Estilos específicos para a página de detalhes da ata */
+.detalhes-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detalhes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.detalhes-header h1 {
+    font-size: 2rem;
+    color: #dc3545; /* Vermelho escuro */
+    margin: 0;
+}
+
+.detalhes-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-content h2 {
+    font-size: 1.75rem;
+    color: #dc3545; /* Vermelho escuro */
+    margin-bottom: 1.5rem;
+}
+
+.detalhes-content p {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.detalhes-content .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+.detalhes-content .btn-primary {
+    background-color: #dc3545; /* Vermelho escuro */
+    color: #fff;
+}
+
+.detalhes-content .btn-primary:hover {
+    background-color: #c82333; /* Vermelho mais escuro */
+    transform: translateY(-2px);
+}
+
+.detalhes-content .btn-secondary {
+    background-color: #6c757d; /* Cinza */
+    color: #fff;
+}
+
+.detalhes-content .btn-secondary:hover {
+    background-color: #5a6268; /* Cinza mais escuro */
+    transform: translateY(-2px);
+}
+
+.tarefas-list {
+    margin-top: 2rem;
+}
+
+.tarefa-card {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarefa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tarefa-card h3 {
+    font-size: 1.25rem;
+    color: #dc3545; /* Vermelho escuro */
+    margin-bottom: 1rem;
+}
+
+.tarefa-card p {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.tarefa-card .btn-status {
+    padding: 0.5rem 1rem;
+    background-color: #dc3545; /* Vermelho escuro */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarefa-card .btn-status:hover {
+    background-color: #c82333; /* Vermelho mais escuro */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .detalhes-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .detalhes-content {
+        padding: 1rem;
+    }
+}

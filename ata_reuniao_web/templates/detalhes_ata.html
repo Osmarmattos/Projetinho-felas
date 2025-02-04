@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/detalhes_ata.css">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Detalhes da Ata{% endblock %}
+
+{% block content %}
+    <div class="detalhes-container">
+        <div class="detalhes-header">
+            <h1>{{ ata.titulo }}</h1>
+            <div>
+                <a href="{{ url_for('hub_atas') }}" class="btn btn-secondary">Voltar</a>
+            </div>
+        </div>
+
+        <div class="detalhes-content">
+            <h2>Detalhes da Ata</h2>
+            <p><strong>Descrição:</strong> {{ ata.descricao }}</p>
+            <p><strong>Criador:</strong> {{ ata.criador }}</p>
+            <p><strong>Usuários adicionados:</strong> {{ ata.usuarios_adicionados|join(", ") }}</p>
+
+            {# Formulário para adicionar usuários (apenas para o criador da ata) #}
+            {% if session["usuario"] == ata["criador"] %}
+                <h2>Adicionar Usuário à Ata</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <select name="usuario_adicionado">
+                            {% for usuario in usuarios %}
+                                {% if usuario not in ata.usuarios_adicionados %}
+                                    <option value="{{ usuario }}">{{ usuario }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn btn-primary">Adicionar Usuário</button>
+                    </div>
+                </form>
+            {% endif %}
+
+            {# Formulário para adicionar tarefas (apenas para o criador da ata) #}
+            {% if session["usuario"] == ata["criador"] %}
+                <h2>Adicionar Tarefa</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="descricao_tarefa">Descrição da Tarefa:</label>
+                        <input type="text" id="descricao_tarefa" name="descricao_tarefa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="responsavel_tarefa">Responsável:</label>
+                        <select id="responsavel_tarefa" name="responsavel_tarefa" required>
+                            {% for usuario in ata.usuarios_adicionados %}
+                                <option value="{{ usuario }}">{{ usuario }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+                </form>
+            {% endif %}
+
+            {# Lista de Tarefas #}
+            <div class="tarefas-list">
+                <h2>Tarefas</h2>
+                {% for tarefa in ata.tarefas %}
+                    <div class="tarefa-card">
+                        <h3>{{ tarefa.descricao }}</h3>
+                        <p><strong>Responsável:</strong> {{ tarefa.responsavel }}</p>
+                        <p><strong>Status:</strong> {{ tarefa.status }}</p>
+
+                        {# Formulário para atualizar o status (apenas para o responsável) #}
+                        {% if session["usuario"] == tarefa["responsavel"] %}
+                            <form method="POST" action="{{ url_for('atualizar_status', index_ata=index, index_tarefa=loop.index0) }}">
+                                <select name="status">
+                                    <option value="pendente" {% if tarefa.status == "pendente" %}selected{% endif %}>Pendente</option>
+                                    <option value="em análise" {% if tarefa.status == "em análise" %}selected{% endif %}>Em Análise</option>
+                                    <option value="finalizado" {% if tarefa.status == "finalizado" %}selected{% endif %}>Finalizado</option>
+                                </select>
+                                <button type="submit" class="btn-status">Atualizar Status</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    
+</body>
+</html>

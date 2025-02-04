@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/hub_atas.css">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Hub de Atas{% endblock %}
+
+{% block content %}
+    <div class="hub-container">
+        <div class="hub-header">
+            <h1>Hub de Atas</h1>
+            <div class="hub-nav">
+                <a href="{{ url_for('atas') }}" class="btn btn-primary">Criar Nova Ata</a>
+                {% if session["usuario"] == "admin" %}
+                    <a href="{{ url_for('gerenciar_usuarios') }}" class="btn btn-secondary">Gerenciar Usuários</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="ata-list">
+            {% for index, ata in enumerate(atas) %}
+                <div class="ata-card">
+                    <h2>{{ ata.titulo }}</h2>
+                    <p><strong>Criador:</strong> {{ ata.criador }}</p>
+                    <p><strong>Usuários adicionados:</strong> {{ ata.usuarios_adicionados|join(", ") }}</p>
+                    <a href="{{ url_for('detalhes_ata', index=index) }}" class="btn-detalhes">Ver Detalhes</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+    
+</body>
+</html>

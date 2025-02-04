@@ -1,0 +1,125 @@
+/* Estilos específicos para a tela de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background: linear-gradient(135deg, #f8d7da, #dc3545); /* Gradiente avermelhado */
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.login-box h1 {
+    margin-bottom: 1.5rem;
+    color: #dc3545; /* Vermelho escuro */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.login-box .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.login-box .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.login-box .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.login-box .form-group input:focus {
+    border-color: #dc3545; /* Vermelho escuro */
+    outline: none;
+}
+
+.login-box .btn-entrar {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #dc3545, #c82333); /* Gradiente vermelho */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-box .btn-entrar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.login-box .btn-entrar:hover {
+    background: linear-gradient(135deg, #c82333, #dc3545); /* Inverte o gradiente ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.login-box .btn-entrar:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.login-box .btn-entrar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-box .register-link {
+    margin-top: 1.5rem;
+    color: #333;
+}
+
+.login-box .register-link a {
+    color: #dc3545; /* Vermelho escuro */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-box .register-link a:hover {
+    color: #c82333; /* Vermelho mais escuro */
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
